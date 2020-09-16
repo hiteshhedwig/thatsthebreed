@@ -9,6 +9,8 @@ from flask import Flask
 import requests
 import torch
 import json
+from PIL import Image
+import numpy
 
 with open("src/config.yaml", 'r') as stream:
     APP_CONFIG = yaml.full_load(stream)
@@ -16,19 +18,24 @@ with open("src/config.yaml", 'r') as stream:
 app = Flask(__name__)
 
 
-def load_model(path=".", model_name="final.pth"):
-    learn = load_learner(path, fname=model_name)
+def load_model(path_m):
+    #path_m= '/home/username/10_WEbapp/thatsthebreed/models'
+    model_name="final.pth"
+    learn = load_learner(os.path.join(path_m, model_name))
     return learn
 
 
 def load_image_url(url: str) -> Image:
     response = requests.get(url)
-    img = open_image(BytesIO(response.content))
+    img_url = numpy.asarray(Image.open(BytesIO(response.content)))
+    img= PILImage(PILImage.create(img_url).resize((224,224)))
     return img
 
 
 def load_image_bytes(raw_bytes: ByteString) -> Image:
-    img = open_image(BytesIO(raw_bytes))
+ 
+    img_byt = numpy.asarray(Image.open(BytesIO(raw_bytes)))
+    img= PILImage(PILImage.create(img_byt).resize((224,224)))
     return img
 
 
@@ -36,16 +43,18 @@ def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
     pred_class, pred_idx, outputs = model.predict(img)
     pred_probs = outputs / sum(outputs)
     pred_probs = pred_probs.tolist()
-    predictions = []
+    print(pred_probs[pred_idx])
+    predictions = [{"class":pred_class,"output": outputs.tolist()[pred_idx], "prob": pred_probs[pred_idx] }]
+    '''
     for image_class, output, prob in zip(model.data.classes, outputs.tolist(), pred_probs):
         output = round(output, 1)
         prob = round(prob, 2)
         predictions.append(
             {"class": image_class.replace("_", " "), "output": output, "prob": prob}
         )
-
-    predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
-    predictions = predictions[0:n]
+    '''
+    #predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
+    #predictions = predictions[0:n]
     return {"class": str(pred_class), "predictions": predictions}
 
 

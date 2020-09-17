@@ -34,7 +34,7 @@ def load_image_url(url: str) -> Image:
 
 def load_image_bytes(raw_bytes: ByteString) -> Image:
  
-    img_byt = numpy.asarray(Image.open(BytesIO(raw_bytes)))
+    img_byt = numpy.asarray(Image.open(BytesIO(raw_bytes)).convert('RGB'))
     img= PILImage(PILImage.create(img_byt).resize((224,224)))
     return img
 

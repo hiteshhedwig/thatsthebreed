@@ -1,0 +1,21 @@
+--- 
+about: |-
+    This is a Dog Breed Classifier using Deep Learning FastAI2  built on top of Pytorch.
+    
+    The project was build by [Hitesh Kumar](https://hshkumar.github.io)
+code: "https://github.com/hiteshhedwig/thatsthebreed"
+description: "Classification of Dog's Breed using FastAI2"
+sampleImages: 
+  - 
+    name: "German Shepherd"
+    url: "https://images.unsplash.com/photo-1588160073354-58c814c0e64b?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80"
+  - 
+    name: Pug
+    url: "https://images.unsplash.com/photo-1512723185835-0700e5069a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+  - 
+    name: Beagle
+    url: "https://images.unsplash.com/photo-1512546321483-c0468b7b8a95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+  - 
+    name: "YorkShire Terrier"
+    url: "https://images.unsplash.com/photo-1599537535373-b5edd69a80cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+title: ThatsTheBreed

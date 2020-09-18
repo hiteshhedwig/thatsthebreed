@@ -1,5 +1,6 @@
 # Dog Breed Classifier WebAPP 
 
+![dogbreed](assets/dogs.png)
 ## Demo
 
 ![Demo](assets/demo.gif)

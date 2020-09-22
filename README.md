@@ -26,7 +26,7 @@ The following were used for model **deployment**:
 Citation:
 >Pattaniyil, Nidhin and Shaikh, Reshama, [Deploying Deep Learning Models On Web And Mobile](https://reshamas.github.io/deploying-deep-learning-models-on-web-and-mobile/), 2019
 
-They do incredible job in model deployment. Somehow, its outdated and doesn't work for fastai2. So i have created by version of webapp on the top of their ideas.
+They did incredible job in model deployment. Somehow, its outdated and doesn't work for fastai2. So i have created by version of webapp on the top of their ideas.
 If you succesfully able to deploy your webapp. Do remember to cite the original creators. They did the most of hardwork. We should be humbled.
 Thanks :)
 
